@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # m.mortezaahmadi7912-project
+=======
+# devops
+>>>>>>> 58d4e21e65b217e784b33a97fba553c069486a34
 
 
 
@@ -15,14 +19,22 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
+<<<<<<< HEAD
 git remote add origin https://gitlab.com/m.mortezaahmadi7912-group/m.mortezaahmadi7912-project.git
+=======
+git remote add origin https://gitlab.com/m.mortezaahmadi7912-group/devops.git
+>>>>>>> 58d4e21e65b217e784b33a97fba553c069486a34
 git branch -M main
 git push -uf origin main
 ```
 
 ## Integrate with your tools
 
+<<<<<<< HEAD
 - [ ] [Set up project integrations](https://gitlab.com/m.mortezaahmadi7912-group/m.mortezaahmadi7912-project/-/settings/integrations)
+=======
+- [ ] [Set up project integrations](https://gitlab.com/m.mortezaahmadi7912-group/devops/-/settings/integrations)
+>>>>>>> 58d4e21e65b217e784b33a97fba553c069486a34
 
 ## Collaborate with your team
 

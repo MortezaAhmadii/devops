@@ -1,0 +1,18 @@
+stages:
+  - build
+  - push
+
+variables:
+  IMAGE_NAME: mortezaahmadii/my-devops-project
+
+before_script:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+
+build:
+  stage: build
+  script:
+    - docker build -t $IMAGE_NAME:$CI_COMMIT_SHORT_SHA .
+    - docker push $IMAGE_NAME:$CI_COMMIT_SHORT_SHA
+  only:
+    - main
+

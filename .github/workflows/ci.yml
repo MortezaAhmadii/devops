@@ -1,25 +1,20 @@
-name: CI Pipeline
+name: Test Docker Command
 
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
-  build:
+  docker-test:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout source code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v3
+      - name: Check Docker version
+        run: docker --version
 
-    - name: Build Docker image
-      run: docker build -t my-app:latest .
-
-    - name: Show Docker images
-      run: docker images
+      - name: List Docker images
+        run: docker images
 

@@ -1,20 +1,33 @@
-name: Test Docker Command
+name: CI/CD Pipeline
 
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  docker-test:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: Checkout source code
+      uses: actions/checkout@v3
 
-      - name: Check Docker version
-        run: docker --version
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
 
-      - name: List Docker images
-        run: docker images
+    - name: Build Docker Image
+      run: docker build -t my-python-app:latest .
+
+    - name: Run container with Docker Compose
+      run: docker-compose up -d --build
+
+    - name: Show Running Containers
+      run: docker ps
+
+    - name: Health Check (curl)
+      run: |
+        sleep 5
+        curl -f http://localhost:5000 || exit 1
 
